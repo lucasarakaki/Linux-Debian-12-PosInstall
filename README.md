@@ -1,2 +1,2 @@
-# Linux-Mint-19.x-PosInstall
-Shell Script de pós instalação do Linux Mint 19.x para utilização pessoal.
+# Linux-Debian-12-wsl-PosInstall
+Shell Script de pós instalação do Linux Debian 12 no WSL para utilização pessoal.
