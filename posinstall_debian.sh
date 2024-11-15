@@ -36,18 +36,14 @@ APT_PACKAGES=(
   rar
   p7zip
   p7zip-full
-  sysstat
-  iostat
-  lsof
-  strace
-  ce-certificates
+  ca-certificates
   rsync
-  iptables-persistent
   apt-transport-https
   lsb-release
   gnupg2
   software-properties-common 
   iproute2
+  fail2ban
 )
 
 DKR_PACKAGES=(
@@ -92,6 +88,7 @@ sudo apt update -y
 
 # ----------------------------- EXECUÇÃO ----------------------------- #
 # Instalar programas no apt
+echo -e "\033[01;32mInstalling apt packages\033[0m"
 for nome_do_programa in ${APT_PACKAGES[@]}; do
   if ! dpkg -l | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
     apt install "$nome_do_programa" -y
@@ -122,6 +119,7 @@ echo -e "\033[01;32mRunning apt update after additions\033[0m"
 sudo apt update -y
 
 # Instalando Docker
+echo -e "\033[01;32mInstalling docker packages\033[0m"
 for nome_do_programa in ${DKR_PACKAGES[@]}; do
   if ! dpkg -l | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
     apt install "$nome_do_programa" -y
@@ -131,6 +129,7 @@ for nome_do_programa in ${DKR_PACKAGES[@]}; do
 done
 
 # Instalando PHP
+echo -e "\033[01;32mInstalling php packages\033[0m"
 for nome_do_programa in ${PHP_PACKAGES[@]}; do
   if ! dpkg -l | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
     apt install "$nome_do_programa" -y
