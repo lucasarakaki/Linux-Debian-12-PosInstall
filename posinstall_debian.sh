@@ -17,33 +17,26 @@
 APT_PACKAGES=(
   vim
   git
-  gcc
-  g++
   wget
-  curl
   htop
   nmap
-  make
-  cmake
   neofetch
   net-tools
   openssh-server
   build-essential
   traceroute
-  iptables
   unzip
   zip
   rar
   p7zip
   p7zip-full
   ca-certificates
-  rsync
   apt-transport-https
   lsb-release
-  gnupg2
   software-properties-common 
   iproute2
-  fail2ban
+  tmux
+  flatpak
 )
 
 DKR_PACKAGES=(
@@ -117,6 +110,13 @@ sudo echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo te
 ## Atualizando o repositório depois da adição de novos repositórios ##
 echo -e "\033[01;32mRunning apt update after additions\033[0m"
 sudo apt update -y
+
+# -------FLATPAK-------
+echo -e "\033[01;32mInstall the Software Flatpak plugin\033[0m"
+sudo apt install gnome-software-plugin-flatpak
+echo -e "\033[01;32mAdd the Flathub repository\033[0m"
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+# -------FLATPAK------
 
 # Instalando Docker
 echo -e "\033[01;32mInstalling docker packages\033[0m"
